@@ -31,7 +31,8 @@ function createTableColumns(){
         {"mDataProp": "contactemail", "sTitle": "Contact Email", "sClass": "center"},
 		{"mDataProp": "category", "sTitle": "Category", "sClass": "center"},
 		{"mDataProp": "address", "sTitle": "Address", "sClass": "center"},
-		{"mDataProp": "website", "sTitle": "Website", "sClass": "center"}
+		{"mDataProp": "website", "sTitle": "Website", "sClass": "center"},
+        {"mDataProp": "emailcontactinfo", "sTitle": "Email Contact Info", "sClass": "center"}
 	];
     return tableColumns;
 }
@@ -50,6 +51,7 @@ function writeTableWith(dataSource){
             console.log(aData);
             $("td:eq(5)", nRow).html("<a href='http://" + aData.website + " target='_blank''>http://" + aData.website + "</a>");
             $("td:eq(2)", nRow).html("<a href='mailto:" + aData.contactemail + "'>"+ aData.contactemail +"</a>");
+            $("td:eq(6)", nRow).html("<a href='mailto:?subject=Contact%20Info%20for%20"+ aData.companyname +"&body=Company%20Name:%20"+ aData.companyname + "%0D%0AContact%20Name:%20"+ aData.contactname +"%0D%0AContact%20Email:%20"+ aData.contactemail +"%0D%0AAddress:%20"+ aData.address +"%0D%0AWebsite:%20"+ aData.website +"'>Email Contact Info</a>");
             return nRow;
         },
         "oLanguage": {
