@@ -27,6 +27,8 @@ function createTableColumns(){
 
     var tableColumns =   [
 		{"mDataProp": "companyname", "sTitle": "Company Name", "sClass": "center"},
+        {"mDataProp": "contactname", "sTitle": "Contact Name", "sClass": "center"},
+        {"mDataProp": "contactemail", "sTitle": "Contact Email", "sClass": "center"},
 		{"mDataProp": "category", "sTitle": "Category", "sClass": "center"},
 		{"mDataProp": "address", "sTitle": "Address", "sClass": "center"},
 		{"mDataProp": "website", "sTitle": "Website", "sClass": "center"}
@@ -46,7 +48,8 @@ function writeTableWith(dataSource){
         "aoColumns": createTableColumns(),
         "fnRowCallback": function(nRow, aData, iDisplayIndex) {
             console.log(aData);
-            $("td:eq(3)", nRow).html("<a href='http://" + aData.website + " target='_blank''>http://" + aData.website + "</a>");
+            $("td:eq(5)", nRow).html("<a href='http://" + aData.website + " target='_blank''>http://" + aData.website + "</a>");
+            $("td:eq(2)", nRow).html("<a href='mailto:" + aData.contactemail + "'>"+ aData.contactemail +"</a>");
             return nRow;
         },
         "oLanguage": {
